@@ -3,7 +3,7 @@
 
 #include <spdlog/spdlog.h>
 
-#include "buffer.hpp"
+#include "growable_buffer.hpp"
 
 
 GrowableBuffer::View::View(GrowableBuffer& buf, size_t begin, size_t size) noexcept:

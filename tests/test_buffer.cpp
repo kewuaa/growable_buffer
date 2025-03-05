@@ -1,6 +1,6 @@
 #include <boost/ut.hpp>
 
-#include "buffer.hpp"
+#include "growable_buffer.hpp"
 using namespace boost::ut;
 
 
