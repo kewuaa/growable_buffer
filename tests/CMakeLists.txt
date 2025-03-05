@@ -6,7 +6,7 @@ TARGET_SOURCES(
 TARGET_LINK_LIBRARIES(
     test_buffer
     PRIVATE
-        resizable_buffer
+        ${PROJECT_NAME}
         Boost::ut
         fmt
 )
