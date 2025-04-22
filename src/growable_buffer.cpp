@@ -90,9 +90,9 @@ GrowableBuffer::View GrowableBuffer::malloc(size_t nbytes) noexcept {
 }
 
 
-void GrowableBuffer::free(char* data) noexcept {
-    assert(_buffer.data() + _write_idx - data >= 0);
-    _write_idx = data - _buffer.data();
+void GrowableBuffer::backup(size_t size) noexcept {
+    assert(_write_idx-_read_idx >= size);
+    _write_idx -= size;
 }
 
 

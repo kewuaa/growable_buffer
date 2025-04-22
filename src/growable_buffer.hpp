@@ -49,7 +49,7 @@ class GrowableBuffer {
         [[nodiscard]] std::string_view read(size_t nbytes) noexcept;
         [[nodiscard]] std::string_view read_all() noexcept;
         [[nodiscard]] View malloc(size_t nbytes) noexcept;
-        void free(char* data) noexcept;
+        void backup(size_t size) noexcept;
         void write(char byte) noexcept;
         View write(std::string_view data) noexcept;
 
