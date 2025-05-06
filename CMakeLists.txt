@@ -1,20 +1,20 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.15)
+cmake_minimum_required(VERSION 3.15)
 
-PROJECT(growable_buffer LANGUAGES CXX)
+project(growable_buffer LANGUAGES CXX)
 
-SET(CMAKE_CXX_STANDARD 20)
-SET(CMAKE_EXPORT_COMPILE_COMMANDS on)
-SET(CMAKE_CXX_FLAGS "-O0 -Wall -g -ggdb")
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_EXPORT_COMPILE_COMMANDS on)
+set(CMAKE_CXX_FLAGS "-O0 -Wall -g -ggdb")
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN ON)
 
 
-SET(BUILD_TESTS TRUE CACHE BOOL "if to build tests")
+set(BUILD_TESTS TRUE CACHE BOOL "if to build tests")
 
-SET(DEFAULT_BUFFER_SIZE 1024 CACHE STRING "default buffer size")
+set(DEFAULT_BUFFER_SIZE 1024 CACHE STRING "default buffer size")
 
 if (NOT CMAKE_BUILD_TYPE)
-    SET(CMAKE_BUILD_TYPE Debug)
+    set(CMAKE_BUILD_TYPE Debug)
 endif()
 
 if (NOT DEFINED BUILD_SHARED_LIBS)
@@ -23,28 +23,28 @@ endif()
 
 include(GenerateExportHeader)
 
-ADD_LIBRARY(${PROJECT_NAME})
+add_library(${PROJECT_NAME})
 generate_export_header(
     ${PROJECT_NAME}
     EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/growable_buffer_export.hpp
 )
-TARGET_COMPILE_DEFINITIONS(
+target_compile_definitions(
     ${PROJECT_NAME}
     PUBLIC
         DEFAULT_BUFFER_SIZE=${DEFAULT_BUFFER_SIZE}
 )
-TARGET_INCLUDE_DIRECTORIES(
+target_include_directories(
     ${PROJECT_NAME}
     PUBLIC
         src
         ${CMAKE_CURRENT_BINARY_DIR}
 )
-TARGET_SOURCES(${PROJECT_NAME} PRIVATE src/growable_buffer.cpp)
+target_sources(${PROJECT_NAME} PRIVATE src/growable_buffer.cpp)
 
 if (BUILD_TESTS)
-    FIND_PACKAGE(fmt)
+    find_package(fmt)
 
-    INCLUDE(FetchContent)
+    include(FetchContent)
     FetchContent_Declare(
         ut
         GIT_REPOSITORY "https://github.com/boost-ext/ut.git"
@@ -52,6 +52,6 @@ if (BUILD_TESTS)
     )
     FetchContent_MakeAvailable(ut)
 
-    ENABLE_TESTING()
-    ADD_SUBDIRECTORY(tests)
+    enable_testing()
+    add_subdirectory(tests)
 endif()
