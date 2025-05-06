@@ -1,0 +1,5 @@
+#pragma once
+#include <cstddef>
+
+
+constexpr inline size_t DEFAULT_BUFFER_SIZE = ${DEFAULT_BUFFER_SIZE};

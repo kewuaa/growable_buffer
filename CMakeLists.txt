@@ -23,15 +23,15 @@ endif()
 
 include(GenerateExportHeader)
 
+configure_file(
+    src/config.hpp.in
+    ${CMAKE_CURRENT_BINARY_DIR}/growable_buffer_config.hpp
+)
+
 add_library(${PROJECT_NAME})
 generate_export_header(
     ${PROJECT_NAME}
     EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/growable_buffer_export.hpp
-)
-target_compile_definitions(
-    ${PROJECT_NAME}
-    PUBLIC
-        DEFAULT_BUFFER_SIZE=${DEFAULT_BUFFER_SIZE}
 )
 target_include_directories(
     ${PROJECT_NAME}

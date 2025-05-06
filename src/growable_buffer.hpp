@@ -5,6 +5,7 @@
 #include <cstddef>
 
 #include "growable_buffer_export.hpp"
+#include "growable_buffer_config.hpp"
 
 
 class GROWABLE_BUFFER_EXPORT GrowableBuffer {
