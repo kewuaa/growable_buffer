@@ -4,9 +4,10 @@
 #include <cstring>
 #include <cstddef>
 
+#include "growable_buffer_export.hpp"
 
 
-class GrowableBuffer {
+class GROWABLE_BUFFER_EXPORT GrowableBuffer {
     private:
         std::vector<char> _buffer;
         size_t _read_idx { 0 };
