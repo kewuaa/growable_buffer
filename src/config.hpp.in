@@ -2,4 +2,4 @@
 #include <cstddef>
 
 
-constexpr inline size_t DEFAULT_BUFFER_SIZE = ${DEFAULT_BUFFER_SIZE};
+constexpr inline size_t GROWABLE_BUFFER_DEFAULT_SIZE = ${DEFAULT_BUFFER_SIZE};

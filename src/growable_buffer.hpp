@@ -43,7 +43,7 @@ class GROWABLE_BUFFER_EXPORT GrowableBuffer {
                 }
         };
 
-        GrowableBuffer(size_t buffer_size = DEFAULT_BUFFER_SIZE) noexcept;
+        GrowableBuffer(size_t buffer_size = GROWABLE_BUFFER_DEFAULT_SIZE) noexcept;
         GrowableBuffer(GrowableBuffer&) = default;
         GrowableBuffer& operator=(GrowableBuffer&) = default;
         GrowableBuffer(GrowableBuffer&&) noexcept;
