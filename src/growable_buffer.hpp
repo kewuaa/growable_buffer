@@ -53,10 +53,10 @@ class GROWABLE_BUFFER_EXPORT GrowableBuffer {
         [[nodiscard]] View malloc(size_t nbytes) noexcept;
         void backup(size_t size) noexcept;
         void write(char byte) noexcept;
-        View write(std::string_view data) noexcept;
+        GrowableBuffer& write(std::string_view data) noexcept;
 
         template<typename... Args>
-        View write(std::format_string<Args...> fmt, Args&&... args) noexcept {
+        GrowableBuffer& write(std::format_string<Args...> fmt, Args&&... args) noexcept {
             return write(std::format(fmt, std::forward<Args>(args)...));
         }
 
