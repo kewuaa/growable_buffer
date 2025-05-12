@@ -103,12 +103,12 @@ void GrowableBuffer::write(char byte) noexcept {
 }
 
 
-GrowableBuffer& GrowableBuffer::write(std::string_view data) noexcept {
+GrowableBuffer::View GrowableBuffer::write(std::string_view data) noexcept {
     if (data.empty()) {
         SPDLOG_WARN("try to write empty data");
-        return *this;
+        return { *this, _write_idx, 0 };
     }
     auto view = this->malloc(data.size());
     std::copy(data.begin(), data.end(), view.data());
-    return *this;
+    return view;
 }
