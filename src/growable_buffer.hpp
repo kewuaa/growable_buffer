@@ -55,10 +55,6 @@ class GROWABLE_BUFFER_EXPORT GrowableBuffer {
         void write(char byte) noexcept;
         GrowableBuffer::View write(std::string_view data) noexcept;
 
-        inline auto write(const char* data, size_t size) noexcept {
-            return write({ data, size });
-        }
-
         template<typename... Args>
         auto write(std::format_string<Args...> fmt, Args&&... args) noexcept {
             return write(std::format(fmt, std::forward<Args>(args)...));
