@@ -1,8 +1,6 @@
 #include <utility>
 #include <cassert>
 
-#include <spdlog/spdlog.h>
-
 #include "growable_buffer.hpp"
 
 
@@ -105,7 +103,6 @@ void GrowableBuffer::write(char byte) noexcept {
 
 GrowableBuffer::View GrowableBuffer::write(std::string_view data) noexcept {
     if (data.empty()) {
-        SPDLOG_WARN("try to write empty data");
         return { *this, _write_idx, 0 };
     }
     auto view = this->malloc(data.size());
