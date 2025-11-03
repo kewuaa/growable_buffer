@@ -42,8 +42,6 @@ target_include_directories(
 target_sources(${PROJECT_NAME} PRIVATE src/growable_buffer.cpp)
 
 if (BUILD_TESTS)
-    find_package(fmt)
-
     include(FetchContent)
     FetchContent_Declare(
         ut

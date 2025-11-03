@@ -8,6 +8,5 @@ target_link_libraries(
     PRIVATE
         ${PROJECT_NAME}
         Boost::ut
-        fmt
 )
 add_test(NAME test_buffer COMMAND $<TARGET_FILE:test_buffer>)
